@@ -1,0 +1,70 @@
+[System]
+Name='SF2'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=24
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='IMC'
+Range=[15 40]
+NumMFs=4
+MF1='surpoids':'pimf',[23 26 29 32]
+MF2='maigreur':'zmf',[17 20]
+MF3='obesite':'smf',[28 32]
+MF4='normal':'pimf',[18 19 23 26]
+
+[Input2]
+Name='stress'
+Range=[0 10]
+NumMFs=3
+MF1='pas-stress':'trapmf',[0 0 2 3]
+MF2='stress-moyen':'pimf',[2.5 4 6 8]
+MF3='stress-important':'smf',[7 8]
+
+[Input3]
+Name='diabete'
+Range=[0 1]
+NumMFs=2
+MF1='pas-diabete':'trimf',[0 0 0]
+MF2='diabete':'trimf',[1 1 1]
+
+[Output1]
+Name='situation'
+Range=[0 1]
+NumMFs=3
+MF1='pas-inquietant':'constant',[0]
+MF2='moyen-inquietant':'constant',[0.5]
+MF3='tres-inquietant':'constant',[1]
+
+[Rules]
+1 1 1, 2 (1) : 1
+1 2 1, 2 (1) : 1
+1 3 1, 3 (1) : 1
+4 1 1, 1 (1) : 1
+4 2 1, 1 (1) : 1
+4 3 1, 2 (1) : 1
+3 1 1, 3 (1) : 1
+3 2 1, 3 (1) : 1
+3 3 1, 3 (1) : 1
+2 1 1, 2 (1) : 1
+2 2 1, 2 (1) : 1
+2 3 1, 3 (1) : 1
+2 1 2, 3 (1) : 1
+2 2 2, 3 (1) : 1
+2 3 2, 3 (1) : 1
+4 1 2, 2 (1) : 1
+4 2 2, 3 (1) : 1
+4 3 2, 3 (1) : 1
+1 1 2, 3 (1) : 1
+1 2 2, 3 (1) : 1
+1 3 2, 3 (1) : 1
+3 1 2, 3 (1) : 1
+3 2 2, 3 (1) : 1
+3 3 2, 3 (1) : 1

@@ -7,9 +7,10 @@ irr1 = [];
 irr2 = [];
 irr3 = [];
 %% Initialisation des systèmes flous
-SF1 = readfis('SF1.fis');
-SF2 = readfis('SF2.fis');
-SF3 = readfis('SF3.fis');
+SF1 = readfis('C:\Users\MinhTri\liver_cancer_fuzzy\fis\SF1.fis');
+SF2 = readfis('C:\Users\MinhTri\liver_cancer_fuzzy\fis\SF2.fis');
+SF11 = readfis('C:\Users\MinhTri\liver_cancer_fuzzy\fis\SF11.fis');
+
 %% On récupère les données en entrée en utilisant la fonction inputdlg
 prompt = {'Sexe : 0.6 ',...
 'Age :',...
@@ -18,7 +19,7 @@ prompt = {'Sexe : 0.6 ',...
 'stress :',...
 'diabete : '};
 %% Valeurs par défaut, titre…
-def = {'0.6','30','0.7','23','2','0'};
+def = {'1','30','0.7','23','2','0'};
 dlgTitle = 'Exemple d’inférence floue symbolique';
 lineNo = 1;
 answer = inputdlg(prompt,dlgTitle,lineNo,def);
@@ -31,8 +32,8 @@ return;
 end;
 % Answer étant un tableau de caractères, on convertit chaque ligne en
 % valeur numérique (fonction str2num)
-Sexe = str2num(answer{1});
-Age = str2num(answer{2});
+Sexe = str2num(answer{1})
+;Age = str2num(answer{2});
 IDH = str2num(answer{3});
 IMC = str2num(answer{4});
 stress = str2num(answer{5});
@@ -111,10 +112,7 @@ nbCsqSF3 = length(SF3.output.mf); % Nombre de classes de sortie
 for i = 1:nbruleSF3, % Boucle sur les règles
 irr3(i,1) = csqSF1(SF3.rule(i).antecedent(1));
 irr3(i,2) = csqSF2(SF3.rule(i).antecedent(2));
-irr3(i,3) = csqSF2(SF3.rule(i).antecedent(3));
-irr3(i,4) = csqSF2(SF3.rule(i).antecedent(4));
-irr3(i,5) = csqSF2(SF3.rule(i).antecedent(5));
-irr3(i,6) = csqSF2(SF3.rule(i).antecedent(6));
+
 end;
 %% Avec l'irr créé nous pouvons effectuer les mêmes calculs que précédemment
 declenchementSF3 = min(irr3, [], 2); % min de chaque ligne
