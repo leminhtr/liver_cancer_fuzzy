@@ -5,14 +5,15 @@
 % Initialisation des variables
 irr1 = [];
 irr2 = [];
-irr3 = [];
+irr11 = [];
+current_dir= pwd;
 %% Initialisation des systèmes flous
-SF1 = readfis('C:\Users\MinhTri\liver_cancer_fuzzy\fis\SF1.fis');
+SF1 = readfis([current_dir '\fis\SF1.fis']);
 SF2 = readfis('C:\Users\MinhTri\liver_cancer_fuzzy\fis\SF2.fis');
 SF11 = readfis('C:\Users\MinhTri\liver_cancer_fuzzy\fis\SF11.fis');
 
 %% On récupère les données en entrée en utilisant la fonction inputdlg
-prompt = {'Sexe : 0.6 ',...
+prompt = {'Sexe : ',...
 'Age :',...
 'IDH :',...
 'IMC :',...
@@ -32,8 +33,8 @@ return;
 end;
 % Answer étant un tableau de caractères, on convertit chaque ligne en
 % valeur numérique (fonction str2num)
-Sexe = str2num(answer{1})
-;Age = str2num(answer{2});
+Sexe = str2num(answer{1});
+Age = str2num(answer{2});
 IDH = str2num(answer{3});
 IMC = str2num(answer{4});
 stress = str2num(answer{5});
@@ -103,34 +104,34 @@ CsqSF2Txt = [CsqSF2Txt(1:end-2), '}'];
 disp(CsqSF2Txt);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% Inférence floue symbolique SF3
+%%%% Inférence floue symbolique SF11
 % les variables d'entrée étant des e.f.d. (csqSF1 et csqSF2), il n'y a
 % pas de phase de fuzzification. Il est inutile d'utiliser evalfis
 % pour obtenir l'irr, il faut donc créer l'irr à la main :
-nbruleSF3 = length(SF3.rule); % Nombre de règles
-nbCsqSF3 = length(SF3.output.mf); % Nombre de classes de sortie
-for i = 1:nbruleSF3, % Boucle sur les règles
-irr3(i,1) = csqSF1(SF3.rule(i).antecedent(1));
-irr3(i,2) = csqSF2(SF3.rule(i).antecedent(2));
+nbruleSF11 = length(SF11.rule); % Nombre de règles
+nbCsqSF11 = length(SF11.output.mf); % Nombre de classes de sortie
+for i = 1:nbruleSF11, % Boucle sur les règles
+irr11(i,1) = csqSF1(SF11.rule(i).antecedent(1));
+irr11(i,2) = csqSF2(SF11.rule(i).antecedent(2));
 
 end;
 %% Avec l'irr créé nous pouvons effectuer les mêmes calculs que précédemment
-declenchementSF3 = min(irr3, [], 2); % min de chaque ligne
+declenchementSF11 = min(irr11, [], 2); % min de chaque ligne
 %%%%%%%%%%
 %% Conséquence Finale : par max-union de toutes les conséquences floues
 %% partielles
 % Initialisation de la conséquence finale
-csqSF3 = zeros(1,nbCsqSF3);
-for i = 1:nbruleSF3,
-csqSF3(SF3.rule(i).consequent) = max(csqSF3(SF3.rule(i).consequent),...
-declenchementSF3(i));
+csqSF11 = zeros(1,nbCsqSF11);
+for i = 1:nbruleSF11,
+csqSF11(SF11.rule(i).consequent) = max(csqSF11(SF11.rule(i).consequent),...
+declenchementSF11(i));
 end;
-% Affichage de la conséquence finale de SF3
+% Affichage de la conséquence finale de SF11
 % Concaténation de texte
-CsqSF3Txt = 'Conséquence SF3 = {';
-for i = 1:nbCsqSF3,
-CsqSF3Txt = [CsqSF3Txt, '(', SF3.output.mf(i).name, ';',...
-num2str(csqSF3(i)), '), '];
+CsqSF11Txt = 'Conséquence SF11 = {';
+for i = 1:nbCsqSF11,
+CsqSF11Txt = [CsqSF11Txt, '(', SF11.output.mf(i).name, ';',...
+num2str(csqSF11(i)), '), '];
 end;
-CsqSF3Txt = [CsqSF3Txt(1:end-2), '}'];
-disp(CsqSF3Txt);
+CsqSF11Txt = [CsqSF11Txt(1:end-2), '}'];
+disp(CsqSF11Txt);

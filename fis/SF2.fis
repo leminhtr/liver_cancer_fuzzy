@@ -39,9 +39,9 @@ MF2='diabete':'trimf',[1 1 1]
 Name='situation'
 Range=[0 1]
 NumMFs=3
-MF1='pas-inquietant':'constant',[0]
-MF2='moyen-inquietant':'constant',[0.5]
-MF3='tres-inquietant':'constant',[1]
+MF1='Pas-inquietant':'constant',[0]
+MF2='Moyennement-inquietant':'constant',[0.5]
+MF3='Tres-inquietant':'constant',[1]
 
 [Rules]
 1 1 1, 2 (1) : 1
