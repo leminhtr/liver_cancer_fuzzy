@@ -1,0 +1,47 @@
+[System]
+Name='SF7'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='GrisSelles'
+Range=[0 10]
+NumMFs=3
+MF1='PasGris':'zmf',[1 4]
+MF2='PeuGris':'gauss2mf',[1 4 1 6]
+MF3='Gris':'smf',[6 9]
+
+[Input2]
+Name='CouleurUrine'
+Range=[0 10]
+NumMFs=3
+MF1='Claire':'zmf',[1 4]
+MF2='Normale':'gauss2mf',[1 4 1 6]
+MF3='Foncee':'smf',[6 9]
+
+[Output1]
+Name='CDM'
+Range=[0 10]
+NumMFs=3
+MF1='PasInquietant':'constant',[0]
+MF2='PeuInquietant':'constant',[0.5]
+MF3='TresInquietant':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 2 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 3 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1

@@ -1,0 +1,47 @@
+[System]
+Name='SF10'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='SignesSBC'
+Range=[0 10]
+NumMFs=3
+MF1='PP':'zmf',[1 4]
+MF2='MP':'gauss2mf',[1 4 1.037 6]
+MF3='TP':'smf',[6 9]
+
+[Input2]
+Name='SignesP'
+Range=[0 10]
+NumMFs=3
+MF1='PP':'zmf',[1 4]
+MF2='MP':'gauss2mf',[1 4 1.037 6]
+MF3='TP':'smf',[6 9]
+
+[Output1]
+Name='CaracterisationRR'
+Range=[0 10]
+NumMFs=3
+MF1='PI':'constant',[0]
+MF2='MI':'constant',[0.5]
+MF3='TI':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 2 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 3 (1) : 1
+3 1, 3 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1

@@ -1,0 +1,48 @@
+[System]
+Name='SF8'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='Nausees'
+Range=[0 10]
+NumMFs=3
+MF1='Faibles':'zmf',[1.5 4]
+MF2='Moderees':'gauss2mf',[1 4 1 6]
+MF3='Fortes':'smf',[6 8.5]
+
+[Input2]
+Name='Amaigrissement'
+Range=[0 15]
+NumMFs=3
+MF1='PoA':'zmf',[1.5 5]
+MF2='PeuSoudain':'gauss2mf',[1 5 1 8.1]
+MF3='Soudain':'smf',[8 11]
+
+[Output1]
+Name='ManifPhysPatient'
+Range=[0 1]
+NumMFs=4
+MF1='PasInquietant':'constant',[0]
+MF2='PeuInquietant':'constant',[0.3]
+MF3='MoyenInquietant':'constant',[0.6]
+MF4='TresInquietant':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 3 (1) : 1
+3 1, 3 (1) : 1
+3 2, 3 (1) : 1
+3 3, 4 (1) : 1
