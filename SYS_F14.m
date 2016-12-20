@@ -1,6 +1,6 @@
 irr14 = [];
 SF14 = readfis([current_dir '\fis\SF14.fis']);
-nbruleSF14 = length(SF14.rule); % Nombre de r?gles
+nbruleSF14 = length(SF14.rule); % Nombre de regles
 nbCsqSF14 = length(SF14.output.mf); % Nombre de classes de sortie
 for i = 1:nbruleSF14, % Boucle sur les regles
  irr14(i,1) = csqSF7(SF14.rule(i).antecedent(1));

@@ -1,0 +1,64 @@
+[System]
+Name='SF3'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=18
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='duree'
+Range=[0 1]
+NumMFs=2
+MF1='long-terme':'trimf',[1 1 1]
+MF2='pas-long-terme':'trimf',[0 0 0]
+
+[Input2]
+Name='consommation-alcool'
+Range=[0 10]
+NumMFs=3
+MF1='faible':'trapmf',[0 0 0.5 1.5]
+MF2='moderee':'trapmf',[1 2 4 5]
+MF3='importante':'trapmf',[4 6.5 10 10]
+
+[Input3]
+Name='prise-substance'
+Range=[0 10]
+NumMFs=3
+MF1='faible':'trapmf',[0 0 1 2]
+MF2='moderee':'trapmf',[1 2 5 6]
+MF3='importante':'trapmf',[5 7.5 10 10]
+
+[Output1]
+Name='risque-associe'
+Range=[0 1]
+NumMFs=4
+MF1='aucun-risque':'constant',[0]
+MF2='faible-risque':'constant',[0.25]
+MF3='risque-moyen':'constant',[0.5]
+MF4='fort-risque':'constant',[1]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 2 (1) : 1
+1 1 3, 3 (1) : 1
+1 2 1, 2 (1) : 1
+1 2 2, 3 (1) : 1
+1 2 3, 4 (1) : 1
+1 3 1, 4 (1) : 1
+1 3 2, 4 (1) : 1
+1 3 3, 4 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 1 (1) : 1
+2 1 3, 2 (1) : 1
+2 2 1, 1 (1) : 1
+2 2 2, 3 (1) : 1
+2 2 3, 3 (1) : 1
+2 3 1, 3 (1) : 1
+2 3 2, 3 (1) : 1
+2 3 3, 4 (1) : 1
