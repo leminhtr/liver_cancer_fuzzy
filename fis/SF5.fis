@@ -1,0 +1,47 @@
+[System]
+Name='SF5'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='CMM'
+Range=[0 10]
+NumMFs=3
+MF1='Faible':'zmf',[1 4]
+MF2='Moderee':'gauss2mf',[1 4.6 1.359 5.4]
+MF3='Importante':'smf',[6.4 9.6]
+
+[Input2]
+Name='Tremblements'
+Range=[0 10]
+NumMFs=3
+MF1='Faibles':'zmf',[0.4 3.6]
+MF2='Moderes':'gauss2mf',[1.359 4.6 1.359 5.4]
+MF3='Importants':'smf',[6.4 9.6]
+
+[Output1]
+Name='SignesInvisibles'
+Range=[0 1]
+NumMFs=3
+MF1='AucunRisque':'constant',[0]
+MF2='RisqueMoy':'constant',[0.5]
+MF3='RisqueTI':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 3 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1

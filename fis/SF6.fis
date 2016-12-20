@@ -1,0 +1,75 @@
+[System]
+Name='SF6'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='Douleur'
+Range=[0 10]
+NumMFs=3
+MF1='Faible':'zmf',[1 3.6]
+MF2='Moderee':'gauss2mf',[1 4 1 6]
+MF3='Forte':'smf',[6.4 9]
+
+[Input2]
+Name='Regularite'
+Range=[0 10]
+NumMFs=3
+MF1='PasMasse':'zmf',[1 3.6]
+MF2='Reguliere':'gauss2mf',[1 4 1 6]
+MF3='Irreguliere':'smf',[6.4 9]
+
+[Input3]
+Name='Durete'
+Range=[0 10]
+NumMFs=3
+MF1='PeuDur':'zmf',[0.9 4]
+MF2='MoyDur':'gauss2mf',[0.8 3.5 0.8 6.5]
+MF3='TresDur':'smf',[6 9.1]
+
+[Output1]
+Name='Masse'
+Range=[0 1]
+NumMFs=5
+MF1='PasInquietant':'constant',[0]
+MF2='PeuInquietant':'constant',[0.2]
+MF3='MoyInquietant':'constant',[0.4]
+MF4='Inquietant':'constant',[0.8]
+MF5='TresInquietant':'constant',[1]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 1 (1) : 1
+1 1 3, 1 (1) : 1
+1 2 1, 2 (1) : 1
+1 2 2, 2 (1) : 1
+1 2 3, 3 (1) : 1
+1 3 1, 3 (1) : 1
+1 3 2, 3 (1) : 1
+1 3 3, 5 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 1 (1) : 1
+2 1 3, 1 (1) : 1
+2 2 1, 2 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 3, 5 (1) : 1
+2 3 1, 3 (1) : 1
+2 3 2, 4 (1) : 1
+2 3 3, 5 (1) : 1
+3 1 1, 1 (1) : 1
+3 1 2, 1 (1) : 1
+3 1 3, 1 (1) : 1
+3 2 1, 3 (1) : 1
+3 2 2, 4 (1) : 1
+3 2 3, 5 (1) : 1
+3 3 1, 4 (1) : 1
+3 3 2, 5 (1) : 1
+3 3 3, 5 (1) : 1
