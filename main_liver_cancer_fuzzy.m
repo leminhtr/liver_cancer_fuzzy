@@ -44,44 +44,36 @@ urine = str2num(answer{8});
 nausees= str2num(answer{9});
 amaigrissement= str2num(answer{10});
 
-
+%SF3
 duree = 1;
-alcool = 3.5 ;
-substance = 5.2;
+alcool = 4.5 ;
+substance = 5.5;
 
-
-hepathopatie = 0 ;
-temps = 3;
+%SF4
+hepathopatie = 0.75 ;
+temps = 6.5;
 hematochromatose = 1;
 
+deficience_alpha=1;
 
 %% Chargement des SFi.m
 
 %Acces sante, situation patient -> Etat du patient
-%SYS_F1;
-%SYS_F2;
-%SYS_F11;
+SYS_F1;
+SYS_F2;
+SYS_F11;
 
-%Deficience alpha-1-antitrypsine, Risque associe, Etat cirrhose -> Risques primaires
+%Risque associe, Deficience alpha-1-antitrypsine, Etat cirrhose  -> Risques primaires
 SYS_F3;
 SYS_F4;
+SYS_F_var27;
 SYS_F12;
 
 
 % Caracterisation des dechets metaboliques, Manifestation physique du patient -> Manifestations physiologiques du patient
-%SYS_F7;
-%SYS_F8;
-%SYS_F14;
-
-
-
-
-
-
-
-
-
-
+SYS_F7;
+SYS_F8;
+SYS_F14;
 
 
 

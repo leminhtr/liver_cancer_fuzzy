@@ -4,7 +4,8 @@ nbruleSF12 = length(SF12.rule); % Nombre de regles
 nbCsqSF12 = length(SF12.output.mf); % Nombre de classes de sortie
 for i = 1:nbruleSF12, % Boucle sur les regles
  irr12(i,1) = csqSF3(SF12.rule(i).antecedent(1));
- irr12(i,2) = csqSF4(SF12.rule(i).antecedent(2));
+ irr12(i,2) = csqSF_var27(SF12.rule(i).antecedent(2));
+ irr12(i,3) = csqSF4(SF12.rule(i).antecedent(3));
 
 end;
 
