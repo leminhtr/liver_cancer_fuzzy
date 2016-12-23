@@ -1,0 +1,100 @@
+[System]
+Name='SF17'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=48
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='VHBC'
+Range=[0 1]
+NumMFs=2
+MF1='Oui':'trimf',[0 0 0]
+MF2='Non':'trimf',[1 1 1]
+
+[Input2]
+Name='EvalSymptomes'
+Range=[0 1]
+NumMFs=6
+MF1='aucun-risque':'trimf',[-0.4 0 0.1]
+MF2='peu-risque':'trimf',[0.1 0.2 0.3]
+MF3='risque-moyen':'trimf',[0.2 0.3 0.4]
+MF4='risque-important':'trimf',[0.4 0.5 0.6]
+MF5='risque-tres-important':'trimf',[0.5 0.6 0.7]
+MF6='risque-tres-tres-important':'trimf',[0.7 0.8 0.9]
+
+[Input3]
+Name='RisquesPrimaires'
+Range=[0 1]
+NumMFs=4
+MF1='PI':'trimf',[0 0 0.1]
+MF2='MI':'trimf',[0.1 0.2 0.3]
+MF3='AI':'trimf',[0.3 0.4 0.5]
+MF4='TI':'trimf',[0.5 0.6 0.7]
+
+[Output1]
+Name='Bilan1'
+Range=[0 1]
+NumMFs=6
+MF1='PeuRisque':'constant',[0]
+MF2='RisqueMoy':'constant',[0.1]
+MF3='RI':'constant',[0.2]
+MF4='RTI':'constant',[0.3]
+MF5='RTTI':'constant',[0.5]
+MF6='PasRisque':'constant',[0.5]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 2 (1) : 1
+1 1 3, 2 (1) : 1
+1 1 4, 3 (1) : 1
+1 2 1, 1 (1) : 1
+1 2 2, 2 (1) : 1
+1 2 3, 2 (1) : 1
+1 2 4, 3 (1) : 1
+1 3 1, 2 (1) : 1
+1 3 2, 2 (1) : 1
+1 3 3, 3 (1) : 1
+1 3 4, 4 (1) : 1
+1 4 1, 2 (1) : 1
+1 4 2, 3 (1) : 1
+1 4 3, 4 (1) : 1
+1 4 4, 5 (1) : 1
+1 5 1, 3 (1) : 1
+1 5 2, 3 (1) : 1
+1 5 3, 4 (1) : 1
+1 5 4, 5 (1) : 1
+1 6 1, 3 (1) : 1
+1 6 2, 4 (1) : 1
+1 6 3, 5 (1) : 1
+1 6 4, 5 (1) : 1
+2 1 1, 6 (1) : 1
+2 1 2, 1 (1) : 1
+2 1 3, 1 (1) : 1
+2 1 4, 2 (1) : 1
+2 2 1, 1 (1) : 1
+2 2 2, 1 (1) : 1
+2 2 3, 2 (1) : 1
+2 2 4, 2 (1) : 1
+2 3 1, 2 (1) : 1
+2 3 2, 3 (1) : 1
+2 3 3, 3 (1) : 1
+2 3 4, 4 (1) : 1
+2 4 1, 2 (1) : 1
+2 4 2, 3 (1) : 1
+2 4 3, 3 (1) : 1
+2 4 4, 5 (1) : 1
+2 5 1, 2 (1) : 1
+2 5 2, 3 (1) : 1
+2 5 3, 4 (1) : 1
+2 5 4, 4 (1) : 1
+2 6 1, 3 (1) : 1
+2 6 2, 3 (1) : 1
+2 6 3, 4 (1) : 1
+2 6 4, 5 (1) : 1

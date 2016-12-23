@@ -30,11 +30,11 @@ MF2='duree-moyenne':'trapmf',[2 3.5 6 7]
 MF3='longue-duree':'trapmf',[6 8 10 10]
 
 [Input3]
-Name='hematochromatose'
+Name='hematochromatose-homozygote'
 Range=[0 1]
 NumMFs=2
-MF1='homozygote':'trimf',[1 1 1]
-MF2='pas-homozygote':'trimf',[0 0 0]
+MF1='hematochromatose-homozygote':'trimf',[1 1 1]
+MF2='pas-hematochromatose-homozygote':'trimf',[0 0 0]
 
 [Output1]
 Name='etat-cirrhose'

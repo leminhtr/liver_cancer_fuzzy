@@ -1,0 +1,42 @@
+[System]
+Name='SF18'
+Type='sugeno'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=6
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='nodule'
+Range=[0 1]
+NumMFs=6
+MF1='TX':'trimf',[0 0 0]
+MF2='T0':'trimf',[0.2 0.2 0.2]
+MF3='T1':'trimf',[0.4 0.4 0.4]
+MF4='T2':'trimf',[0.6 0.6 0.6]
+MF5='T3':'trimf',[0.8 0.8 0.8]
+MF6='T4':'trimf',[1 1 1]
+
+[Output1]
+Name='taille-nodule'
+Range=[0 1]
+NumMFs=6
+MF1='TX':'constant',[0]
+MF2='T0':'constant',[0.2]
+MF3='T1':'constant',[0.4]
+MF4='T2':'constant',[0.6]
+MF5='T3':'constant',[0.8]
+MF6='T4':'constant',[1]
+
+[Rules]
+1, 1 (1) : 1
+2, 2 (1) : 1
+3, 3 (1) : 1
+4, 4 (1) : 1
+5, 5 (1) : 1
+6, 6 (1) : 1

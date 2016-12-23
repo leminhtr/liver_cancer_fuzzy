@@ -1,0 +1,45 @@
+[System]
+Name='SFCLIP'
+Type='sugeno'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=7
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='CLIP'
+Range=[0 10]
+NumMFs=7
+MF1='0':'trimf',[0 0 0]
+MF2='1':'trimf',[1 1 1]
+MF3='2':'trimf',[2 2 2]
+MF4='3':'trimf',[3 3 3]
+MF5='4':'trimf',[4 4 4]
+MF6='5':'trimf',[5 5 5]
+MF7='6':'trimf',[6 6 6]
+
+[Output1]
+Name='CLIP'
+Range=[0 1]
+NumMFs=7
+MF1='0':'constant',[0]
+MF2='1':'constant',[0.1]
+MF3='2':'constant',[0.2]
+MF4='3':'constant',[0.3]
+MF5='4':'constant',[0.4]
+MF6='5':'constant',[0.5]
+MF7='6':'constant',[0.6]
+
+[Rules]
+1, 1 (1) : 1
+2, 2 (1) : 1
+3, 3 (1) : 1
+4, 4 (1) : 1
+5, 5 (1) : 1
+6, 6 (1) : 1
+7, 7 (1) : 1
