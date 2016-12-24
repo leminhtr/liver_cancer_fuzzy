@@ -6,7 +6,7 @@
 
 %Path
 current_dir= pwd;
-
+addpath ('SF.m')
 %% On recupere les donnees en entree en utilisant la fonction inputdlg
 prompt = {'Sexe : ',...
 'Age :',...
@@ -81,6 +81,7 @@ SYS_F14;
 
 SYS_F_var28;
 
+%run('.\SF.m\SYS_F_var27.m');
 
 
 SYS_F_var29;
