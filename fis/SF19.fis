@@ -1,0 +1,91 @@
+[System]
+Name='SF19_decision_floue'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=40
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='etat-patient'
+Range=[0 1]
+NumMFs=4
+MF1='tres-mauvais':'trimf',[0 0.1 0.2]
+MF2='mauvais':'trimf',[0.1 0.2 0.3]
+MF3='ok':'trimf',[0.2 0.3 0.4]
+MF4='bon':'trimf',[0.3 0.4 0.5]
+
+[Input2]
+Name='bilan-final-foie'
+Range=[0 1]
+NumMFs=5
+MF1='peu-risque':'trimf',[0 0.1 0.2]
+MF2='moyen':'trimf',[0.1 0.2 0.3]
+MF3='important':'trimf',[0.2 0.3 0.4]
+MF4='tres-important':'trimf',[0.3 0.4 0.5]
+MF5='tres-tres-important':'trimf',[0.4 0.5 0.6]
+
+[Input3]
+Name='antecedent'
+Range=[0 1]
+NumMFs=2
+MF1='non-present':'trimf',[0 0 0]
+MF2='present':'trimf',[1 1 1]
+
+[Output1]
+Name='CHC'
+Range=[0 1]
+NumMFs=6
+MF1='pas-de-risque':'constant',[0]
+MF2='peu-de-risque':'constant',[0.2]
+MF3='risque-moyen':'constant',[0.4]
+MF4='risque-important':'constant',[0.6]
+MF5='risque-tres-important':'constant',[0.8]
+MF6='risque-tres-tres-important':'constant',[1]
+
+[Rules]
+1 1 2, 3 (1) : 1
+2 1 2, 2 (1) : 1
+3 1 2, 2 (1) : 1
+4 1 2, 2 (1) : 1
+1 2 2, 4 (1) : 1
+2 2 2, 4 (1) : 1
+3 2 2, 3 (1) : 1
+4 2 2, 3 (1) : 1
+1 3 2, 5 (1) : 1
+2 3 2, 4 (1) : 1
+3 3 2, 4 (1) : 1
+4 3 2, 4 (1) : 1
+1 4 2, 6 (1) : 1
+2 4 2, 6 (1) : 1
+3 4 2, 5 (1) : 1
+4 4 2, 5 (1) : 1
+1 5 2, 6 (1) : 1
+2 5 2, 6 (1) : 1
+3 5 2, 6 (1) : 1
+4 5 2, 5 (1) : 1
+1 1 1, 3 (1) : 1
+2 1 1, 2 (1) : 1
+3 1 1, 2 (1) : 1
+4 1 1, 1 (1) : 1
+1 2 1, 3 (1) : 1
+2 2 1, 3 (1) : 1
+3 2 1, 2 (1) : 1
+4 2 1, 2 (1) : 1
+1 3 1, 4 (1) : 1
+2 3 1, 4 (1) : 1
+3 3 1, 4 (1) : 1
+4 3 1, 4 (1) : 1
+1 4 1, 5 (1) : 1
+2 4 1, 5 (1) : 1
+3 4 1, 4 (1) : 1
+4 4 1, 4 (1) : 1
+1 5 1, 6 (1) : 1
+2 5 1, 6 (1) : 1
+3 5 1, 5 (1) : 1
+4 5 1, 5 (1) : 1

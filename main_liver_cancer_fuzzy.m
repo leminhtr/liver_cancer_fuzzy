@@ -45,16 +45,18 @@ nausees= str2num(answer{9});
 amaigrissement= str2num(answer{10});
 
 %SF3
-duree = 1;
-alcool = 4.5 ;
-substance = 5.5;
+duree = 0;
+alcool = 0 ;
+substance = 0;
 
 %SF4
-hepathopatie = 0.75 ;
-temps = 6.5;
-hematochromatose = 1;
+hepathopatie = 0.5 ;
+temps = 0;
+hematochromatose = 0;
 
-deficience_alpha=1;
+deficience_alpha=0;
+
+antecedent=1;
 
 %% Chargement des SFi.m
 
@@ -76,7 +78,7 @@ SYS_F8;
 SYS_F14;
 
 
-
+SYS_F_var29;
 
 
 

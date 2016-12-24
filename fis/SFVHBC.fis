@@ -1,0 +1,30 @@
+[System]
+Name='SFVHBC'
+Type='sugeno'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=2
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='VHBC'
+Range=[0 1]
+NumMFs=2
+MF1='Oui':'trimf',[1 1 1]
+MF2='Non':'trimf',[0 0 0]
+
+[Output1]
+Name='VHBC'
+Range=[0 1]
+NumMFs=2
+MF1='Oui':'constant',[0]
+MF2='Non':'constant',[1]
+
+[Rules]
+1, 1 (1) : 1
+2, 2 (1) : 1
