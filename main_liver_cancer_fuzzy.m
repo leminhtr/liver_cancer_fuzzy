@@ -58,6 +58,8 @@ deficience_alpha=0;
 
 antecedent=1;
 
+nodule=0.2;
+
 %% Chargement des SFi.m
 
 %Acces sante, situation patient -> Etat du patient
@@ -76,6 +78,9 @@ SYS_F12;
 SYS_F7;
 SYS_F8;
 SYS_F14;
+
+SYS_F_var28;
+
 
 
 SYS_F_var29;
