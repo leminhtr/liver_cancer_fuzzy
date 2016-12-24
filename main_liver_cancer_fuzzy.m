@@ -6,7 +6,8 @@
 
 %Path
 current_dir= pwd;
-addpath ('SF.m')
+addpath ('SF.m');
+
 %% On recupere les donnees en entree en utilisant la fonction inputdlg
 prompt = {'Sexe : ',...
 'Age :',...
@@ -45,9 +46,9 @@ nausees= str2num(answer{9});
 amaigrissement= str2num(answer{10});
 
 %SF3
-duree = 0;
-alcool = 0 ;
-substance = 0;
+duree = 10;
+alcool = 4 ;
+substance = 3;
 
 %SF4
 hepathopatie = 0.5 ;
