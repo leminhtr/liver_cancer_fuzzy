@@ -144,7 +144,6 @@ SYS_F17;
 SYS_F_var28;
 SYS_F18;
 
-
 % SF11, SF18, antecedent -> Risque CHC
 SYS_F_var29;
 %fprintf('\nLe diagnostic du patient %s est :\n', name);
