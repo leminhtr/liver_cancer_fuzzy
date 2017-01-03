@@ -6,37 +6,7 @@
 
 %Path
 current_dir= pwd;
-addpath ('SF.m');
-addpath ('fonctions');
-
-%prompt='Quel est le nom du patient ?\n';
-%name=input(prompt,'s');
-
-%% On recupere les donnees en entree en utilisant la fonction inputdlg
-prompt = {'Sexe : ',...
-'Age :',...
-'IDH :',...
-'IMC :',...
-'stress :',...
-'diabete : ',...
-'Teinte de gris des selles : ',...
-'Couleur urine :',...
-'Nausees:',...
-'Amaigrissement :'};
-%% Valeurs par defaut, titre
-def = {'1','30','0.7','23','2','0','4','6','2.9','5'};
-dlgTitle = 'Exemple d inference floue symbolique';
-lineNo = 1;
-answer = inputdlg(prompt,dlgTitle,lineNo,def);
-% si on a clique sur cancel answer est vide, il faut donc sortir du
-% programme
-
-if isempty(answer),
-disp('Action annulee');
-return;
-end;
-% Answer etant un tableau de caracteres, on convertit chaque ligne en
-% valeur numerique (fonction str2num)
+addpath('SF.m');
 
 %% Entree des valeurs : 
 
@@ -144,11 +114,6 @@ SYS_F17;
 SYS_F_var28;
 SYS_F18;
 
-
 % SF11, SF18, antecedent -> Risque CHC
 SYS_F_var29;
-%fprintf('\nLe diagnostic du patient %s est :\n', name);
 SYS_F19;
-
-%IMC_func(1.7,50);
-
