@@ -9,8 +9,8 @@ current_dir= pwd;
 addpath ('SF.m');
 addpath ('fonctions');
 
-%prompt='Quel est le nom du patient ?\n';
-%name=input(prompt,'s');
+prompt='Quel est le nom du patient ?\n';
+name=input(prompt,'s');
 
 %% On recupere les donnees en entree en utilisant la fonction inputdlg
 prompt = {'Sexe : ',...
@@ -46,7 +46,10 @@ Age = 50;
 IDH = 0.888; % 0 a 1
 
 %SF2 
-IMC = 23.2;
+poids=57.8;	 % kg
+taille=1.70; % m
+IMC = IMC_func(taille,poids); % =20, normal [15 40]
+
 stress = 1; % 0 a 10
 diabete = 0; % 0 ou 1
 
@@ -89,7 +92,20 @@ paraneoplasique= 0; % 0 a 10
 deficience_alpha= 0; %0 = non ou 1= oui
 
 %SFCLIP pour SF13
-CLIP=4; % 0-1-2-3-4-5-6
+
+%Classe Child-Pugh
+%encephalopathie='absente', 'asterixis','confusion', 'coma'
+%ascite = 'absente','minime','abondante'
+%bilirubineTot < 35, >= 35 & bilirubineTot <= 50, > 50
+%albumine >35,>=28 & <=35 ,<28
+%prothrombine > 50, >= 40 & <= 50, < 40
+classe=ChildPugh('absente','minime',40,30,45); % A,B,C 
+
+%Tumeur = 'uninodulaire', 'multinodulaire','diffuse'
+%Extension <= 50 , >50
+%AFP= <= 400, >400
+%Thrombose= 0 =non, 1 =oui
+CLIP=CLIP_func(classe,'multinodulaire',50,399,0); % 0-1-2-3-4-5-6
 
 %SFVHBC pour SF17
 VHBC=0; % 0 = non ou 1= oui
@@ -100,7 +116,7 @@ antecedent = 0; % 0=non ou 1=oui
 
 
 %% Chargement des SFi.m
-% total : 539 règles
+% total : 539 regles
 
 % Acces sante, situation patient -> Etat du patient
 SYS_F1;
@@ -146,8 +162,15 @@ SYS_F18;
 
 % SF11, SF18, antecedent -> Risque CHC
 SYS_F_var29;
-%fprintf('\nLe diagnostic du patient %s est :\n', name);
+
 SYS_F19;
 
 %IMC_func(1.7,50);
+
+fprintf('\nLe diagnostic du patient %s est %s au degre %f.\n', name, csq_final, deg_max);
+
+poids=71.05;	% kg
+taille=1.75;	% m
+
+IMC = IMC_func(taille,poids); % normal
 

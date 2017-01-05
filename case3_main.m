@@ -12,85 +12,82 @@ addpath('fonctions');
 %% Entree des valeurs : 
 
 %SF1
-Sexe=0; % homme
-Age = 65;	% moins jeune
-IDH = 0.727; % pays developpe
+Sexe=1; % femme=1 (femme moins atteinte par CHC)
+Age = 20; % jeune
+IDH = 0.944; % Norvege : Pays developpe
 
 %SF2 
-poids=81;	 % kg
-taille=1.80; % m
+poids=57.8;	 % kg
+taille=1.70; % m
 
-IMC = IMC_func(taille,poids); % =25 normal, surpoids
-stress = 8; % stress important
+IMC = IMC_func(taille,poids); % =20, normal
+stress = 0; % pas stress
 diabete = 0; % pas diabete
 
 %SF3
-duree = 1; % long terme
-alcool = 8 ; % importante
-substance = 5; % moderee
+duree = 0; % pas long terme 
+alcool = 0 ; % faible
+substance = 0; % faible
 
 %SF4
-hepathopatie= 0; % cirrhose alcoolique
-temps= 10; % longue duree
+hepathopatie= 0.5; % pas cirrhose
+temps= 0; % courte duree
 hematochromatose= 0; % non 
 
 %SF5
-confusion = 5; % moderee
-tremblements= 6; % moderee
+confusion = 0; % faible
+tremblements= 0; % faibles
 
 %SF6
-douleur = 9; % forte
-regularite = 8; % irreguliere
-durete = 7; % tres dur
+douleur = 0; % faible
+regularite = 0; % pas de masse
+durete = 0; % peu dur
 
 %SF7
-selles= 5; % peu gris
-urine = 8; % foncee
+selles= 0; % pas gris
+urine = 0; % claire
 
 %SF8
-nausees= 7; % forte
-amaigrissement= 4; % peu soudain
+nausees= 0; % faibles
+amaigrissement= 0; % pas amaigrissement ou attendu
 
 %SF9
-anemie= 8; % prononces
-hemorragie= 4; % moyenne
+anemie= 0; % faibles
+hemorragie= 0; % faible
 
 %SF10
-buddchiari= 8; % tres present
-paraneoplasique= 5; % moyennement present
+buddchiari= 0; % peu present
+paraneoplasique= 0; % peu present
 
 %SF_var27 pour SF12
-deficience_alpha= 0; % non
-
-%SFCLIP pour SF13
-CLIP=2;
+deficience_alpha= 0; % non 
 
 %% SFCLIP pour SF13
 
 % Score ChildPugh
 encephalopathie='absente';
-ascite='minime';
-bilirubineTot=20;
-albumine=50;
-prothrombine=55;
+ascite='absente';
+bilirubineTot=10;
+albumine=40;
+prothrombine=60;
 
 ChildPugh_class=ChildPugh(encephalopathie,ascite,bilirubineTot,albumine,prothrombine);
 % ='A'
 
 % CLIP
-tumeur='multinodulaire';
-extension=20;
-afp= 629;
+tumeur='uninodulaire';
+extension=0;
+afp= 10;
 thrombose=0;
 
-CLIP=CLIP_func(ChildPugh_class,tumeur,extension,afp,thrombose); % =2
+CLIP=CLIP_func(ChildPugh_class,tumeur,extension,afp,thrombose); % =0
 
 %SFVHBC pour SF17
-VHBC=1; % oui
-nodule= 0.4; % T1
+VHBC=0; % 0 = non 
+nodule= 0; % TX
 
 %SF_var29 pour SF19
-antecedent = 1; % oui
+antecedent = 0; % non 
 
 
 %% Chargement des SFi.m

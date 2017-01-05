@@ -1,106 +1,65 @@
 % Score CHILD-Pugh (cirrhose)
 
-function []= ChildPugh(encephalopathie,ascite,bilirubineTot, albumine, prothrombine)
-score = 0;
-score5=14;
-classe = '';
+function [classe]= ChildPugh(encephalopathie,ascite,bilirubineTot, albumine, prothrombine)
 
-%encephalopathie = 'coma' 
 switch encephalopathie
-    case 'abscente'
+    case 'absente'
         score = 1;
-        disp('score =');
-        disp(score);
     case {'asterixis','confusion'} 
         score = 2;
-        disp('score =');
-        disp(score);
     case 'coma'
         score = 3;
-        disp('score =');
-        disp(score);
     otherwise
-        disp('Les seules entrees valides sont : abscente, asterixis/confusion ou coma')
+        disp('Les seules entrees valides sont : absente, asterixis/confusion ou coma')
 
 end
 
 % ascite
-%ascite = 'abondante'
 
 switch ascite
     case 'absente'
-        score2 = score + 1;
-        disp('score =');
-        disp(score2);
+        score = score + 1;
     case 'minime'
-        score2 = score + 2;
-        disp('score =');
-        disp(score2);
+        score = score + 2;
     case 'abondante'
-        score2 = score + 3;
-        disp('score =');
-        disp(score2);
+        score = score + 3;
 end
-
-%bilirubineTot = 0
 
 if bilirubineTot < 35
-        score3 = score2 + 1;
-        disp('score =');
-        disp(score3);
+        score = score + 1;
 elseif (bilirubineTot >= 35 && bilirubineTot <= 50)
-        score3 = score2 + 2;
-        disp('score =');
-        disp(score3)
+        score = score + 2;
 elseif bilirubineTot > 50
-        score3 = score2 + 3;
-        disp('score =');
-        disp(score3);
+        score = score + 3;
 end
-
-%albumine = 0
 
 if albumine>35
-        score4 = score3+1;
-        disp('score =');
-        disp(score4);
+        score = score+1;
 elseif (albumine>=28 && albumine<=35)
-        score4 =score3 + 2;
-        disp('score =');
-        disp(score4);
+        score =score + 2;
 elseif albumine<28
-        score4 = score3 + 3;
-        disp('score =');
-        disp(score4);
+        score = score + 3;
 end
 
-%prothrombine = 0
-
 if prothrombine > 50
-        score5 = score4 + 1;
-        disp('score =');
-        disp(score5);
+        score = score + 1;
 elseif (prothrombine >= 40 && prothrombine <= 50)
-        score5 = score4 + 2;
-        disp('score =');
-        disp(score5);
+        score = score + 2;
 elseif prothrombine < 40
-        score5 = score4 + 3;
-        disp('score =');
-        disp(score5);
+        score = score + 3;
   
 end
 
-score = score5;
 
-disp('Le score de ChildPugh est')
-    if score5 == 5 || score5 == 6
-        disp('Classe A')
-    elseif score5 == 7 || score5 == 8 || score5 == 9
-        disp('Classe B')
-    elseif score5 == 10 || score5 ==11 || score5 ==12 || score5 ==13 ||score5 ==14 || score5 ==15
-        disp('Classe C')
+    if score == 5 || score == 6
+        classe='A';
+    elseif score == 7 || score == 8 || score == 9
+        classe='B';
+    elseif score == 10 || score ==11 || score ==12 || score ==13 ||score ==14 || score ==15
+        classe='C';
     end
+
+fprintf('\nLa classe de ChildPugh est de classe %s.\n', classe);
 
 end
 

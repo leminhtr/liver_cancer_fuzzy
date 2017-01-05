@@ -15,17 +15,17 @@ DefuzzMethod='wtaver'
 Name='SignesSBC'
 Range=[0 10]
 NumMFs=3
-MF1='PP':'zmf',[1 4]
-MF2='MP':'gauss2mf',[1 4 1.037 6]
-MF3='TP':'smf',[6 9]
+MF1='peu-present':'zmf',[1 4]
+MF2='moyennement-present':'gauss2mf',[1 4 1.037 6]
+MF3='tres-present':'smf',[6 9]
 
 [Input2]
 Name='SignesP'
 Range=[0 10]
 NumMFs=3
-MF1='PP':'zmf',[1 4]
-MF2='MP':'gauss2mf',[1 4 1.037 6]
-MF3='TP':'smf',[6 9]
+MF1='peu-present':'zmf',[1 4]
+MF2='moyennement-present':'gauss2mf',[1 4 1.037 6]
+MF3='tres-present':'smf',[6 9]
 
 [Output1]
 Name='CaracterisationRR'

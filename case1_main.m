@@ -7,70 +7,91 @@
 %Path
 current_dir= pwd;
 addpath('SF.m');
+addpath('fonctions');
 
 %% Entree des valeurs : 
 
 %SF1
-Sexe=0; % homme=0, femme=1
-Age = 50;
-IDH = 0.888; % 0 a 1
+Sexe=0; % homme
+Age = 50;	% moins jeune
+IDH = 0.888; % pays developpe
 
 %SF2 
-IMC = 23.2;
-stress = 1; % 0 a 10
-diabete = 0; % 0 ou 1
+poids=71.05;	% kg
+taille=1.75;	% m
+
+IMC = IMC_func(taille,poids); % =23 normal
+stress = 1; % pas stress
+diabete = 0; % pas diabete
 
 %SF3
-duree = 1; % 0= pas long terme ou 1= long terme
-alcool = 0.5 ; % 0 a 10
-substance = 9; % 0 a 10
+duree = 1; % 1= long terme
+alcool = 0.5 ; % faible
+substance = 9; % importante
 
 %SF4
-hepathopatie= 0; % cirrhose-alcoolique=0 ; cirrhose-hepatique-B=0.25; cirrhose-hepatique-C=0.75 ; NASH=1; pas-cirrhose= 0.5
-temps= 10; % 0 a 10
-hematochromatose= 0; % 0= non ou 1 = oui
+hepathopatie= 0; % cirrhose-alcoolique
+temps= 10; % longue duree
+hematochromatose= 0; % non
 
 %SF5
-confusion = 1.2; % 0 a 10
-tremblements= 0; % 0 a 10
+confusion = 1.2; % faible
+tremblements= 0; % faibles
 
 %SF6
-douleur = 7.1; % 0 a 10
-regularite = 6.7; % 0 a 10
-durete = 5.4; % 0 a 10
+douleur = 7.1; % forte
+regularite = 6.7; % irreguliere
+durete = 5.4; % moyennement dur
 
 %SF7
-selles= 8.1; % 0 a 10
-urine = 9.9; % 0 a 10
+selles= 8.1; % grise
+urine = 9.9; % foncee
 
 %SF8
-nausees= 3.5; % 0 a 10
-amaigrissement= 3.3; % 0 a 15
+nausees= 3.5; % faibles
+amaigrissement= 3.3; % pas aimaigrissement ou attendu
 
 %SF9
-anemie= 6.6; % 0 a 10
-hemorragie= 0; % 0 a 10
+anemie= 6.6; % prononces
+hemorragie= 0; % faible
 
 %SF10
-buddchiari= 8.7; % 0 a 10
-paraneoplasique= 0; % 0 a 10
+buddchiari= 8.7; % tres present
+paraneoplasique= 0; % peu present
 
 %SF_var27 pour SF12
-deficience_alpha= 0; %0 = non ou 1= oui
+deficience_alpha= 0; % non
 
 %SFCLIP pour SF13
-CLIP=4; % 0-1-2-3-4-5-6
+
+% Score ChildPugh
+encephalopathie='coma';
+ascite='abondante';
+bilirubineTot=42;
+albumine=29;
+prothrombine=47;
+
+ChildPugh_class=ChildPugh(encephalopathie,ascite,bilirubineTot,albumine,prothrombine);
+% ='C'
+
+% CLIP
+tumeur='multinodulaire';
+extension=20;
+afp= 120;
+thrombose=1;
+
+CLIP=CLIP_func(ChildPugh_class,tumeur,extension,afp,thrombose); % =4
 
 %SFVHBC pour SF17
-VHBC=0; % 0 = non ou 1= oui
-nodule= 0.8; % TX=0, T0=0.2, T1=0.4, T2=0.6, T3=0.8, T4=1
+VHBC=0; % non 
+nodule= 0.8; % T3
 
 %SF_var29 pour SF19
-antecedent = 0; % 0=non ou 1=oui
+antecedent = 0; % non
 
 
 %% Chargement des SFi.m
-% total : 539 règles
+% total : 539 regles
 
 % Acces sante, situation patient -> Etat du patient
 SYS_F1;
@@ -117,3 +138,5 @@ SYS_F18;
 % SF11, SF18, antecedent -> Risque CHC
 SYS_F_var29;
 SYS_F19;
+
+fprintf('\nLe diagnostic du patient est %s avec un degre %f.\n', csq_final, deg_max);

@@ -22,5 +22,26 @@ for i = 1:nbCsqSF19,
  CsqSF19Txt = [CsqSF19Txt, '(', SF19.output.mf(i).name, ';',...
  num2str(csqSF19(i)), '), '];
 end;
+
 CsqSF19Txt = [CsqSF19Txt(1:end-2), '}'];
 disp(CsqSF19Txt);
+
+
+%Defuzzification par valeur modale (maximum)
+
+deg_max=0;
+
+for i = 1:nbCsqSF19,
+	if (csqSF19(i)>= deg_max) % on previligie le cas le plus pessimiste
+		deg_max=csqSF19(i);
+		indice_max=i;
+	end;
+end;
+
+csq_final=SF19.output.mf(indice_max).name;
+
+
+
+
+
+
