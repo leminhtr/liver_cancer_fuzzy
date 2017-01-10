@@ -71,11 +71,10 @@ albumine=30;
 prothrombine=45;
 classe=ChildPugh(encephalopathie,ascite,bilirubineTot, albumine, prothrombine); % classe B
 
-Tumeur ='multinodulaire';
-Extension =50;
-AFP=399;
+Tumeur ='uninodulaire';
+Extension =0;
+AFP=400;
 Thrombose= 0; % non
-CLIP=CLIP_func(classe,'multinodulaire',50,399,0); % 2
 CLIP = CLIP_func(classe,Tumeur,Extension,AFP,Thrombose); % 2
 
 %SFVHBC pour SF17

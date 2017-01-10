@@ -1,5 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Exemple d inference floue symbolique
+%% Systeme flou d evaluation du risque de developpement de CHC
+				Sephora DIAMPOVESA, Minh Tri LE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Initialisation des variables
@@ -11,32 +12,6 @@ addpath ('fonctions');
 
 prompt='Quel est le nom du patient ?\n';
 name=input(prompt,'s');
-
-%% On recupere les donnees en entree en utilisant la fonction inputdlg
-prompt = {'Sexe : ',...
-'Age :',...
-'IDH :',...
-'IMC :',...
-'stress :',...
-'diabete : ',...
-'Teinte de gris des selles : ',...
-'Couleur urine :',...
-'Nausees:',...
-'Amaigrissement :'};
-%% Valeurs par defaut, titre
-def = {'1','30','0.7','23','2','0','4','6','2.9','5'};
-dlgTitle = 'Exemple d inference floue symbolique';
-lineNo = 1;
-answer = inputdlg(prompt,dlgTitle,lineNo,def);
-% si on a clique sur cancel answer est vide, il faut donc sortir du
-% programme
-
-if isempty(answer),
-disp('Action annulee');
-return;
-end;
-% Answer etant un tableau de caracteres, on convertit chaque ligne en
-% valeur numerique (fonction str2num)
 
 %% Entree des valeurs : 
 
@@ -165,12 +140,6 @@ SYS_F_var29;
 
 SYS_F19;
 
-%IMC_func(1.7,50);
-
 fprintf('\nLe diagnostic du patient %s est %s au degre %f.\n', name, csq_final, deg_max);
 
-poids=71.05;	% kg
-taille=1.75;	% m
-
-IMC = IMC_func(taille,poids); % normal
 
