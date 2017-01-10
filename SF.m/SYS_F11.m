@@ -6,7 +6,7 @@ SF11 = readfis([current_dir '\fis\SF11.fis']);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% Inference floue symbolique SF11
+%% Inference floue symbolique SF11
 % les variables d'entree etant des e.f.d. (csqSF1 et csqSF2), il n'y a
 % pas de phase de fuzzification. Il est inutile d'utiliser evalfis
 % pour obtenir l'irr, il faut donc creer l'irr à la main :
@@ -42,5 +42,3 @@ num2str(csqSF11(i)), '), '];
 end;
 CsqSF11Txt = [CsqSF11Txt(1:end-2), '}'];
 disp(CsqSF11Txt);
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

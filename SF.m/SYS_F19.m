@@ -39,9 +39,3 @@ for i = 1:nbCsqSF19,
 end;
 
 csq_final=SF19.output.mf(indice_max).name;
-
-
-
-
-
-
