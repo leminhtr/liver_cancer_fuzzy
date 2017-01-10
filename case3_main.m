@@ -9,6 +9,8 @@ current_dir= pwd;
 addpath('SF.m');
 addpath('fonctions');
 
+name='Imhotep IMHOTEP';
+
 %% Entree des valeurs : 
 
 %SF1
@@ -32,7 +34,7 @@ substance = 0; % faible
 %SF4
 hepathopatie= 0.5; % pas cirrhose
 temps= 0; % courte duree
-hematochromatose= 0; % non 
+hemochromatose= 0; % non 
 
 %SF5
 confusion = 0; % faible
@@ -139,4 +141,4 @@ SYS_F18;
 SYS_F_var29;
 SYS_F19;
 
-fprintf('\nLe diagnostic du patient est %s avec un degre %f.\n', csq_final, deg_max);
+fprintf('\nLe diagnostic du patient %s est %s avec un degre %f.\n', name, csq_final, deg_max);

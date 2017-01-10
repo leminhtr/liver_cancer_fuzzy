@@ -9,12 +9,14 @@ current_dir= pwd;
 addpath('SF.m');
 addpath('fonctions');
 
+
+name='Odilon DERAY';
 %% Entree des valeurs : 
 
 %SF1
 Sexe=0; % homme
 Age = 50;	% moins jeune
-IDH = 0.888; % pays developpe
+IDH = 0.888; % pays developpe (France)
 
 %SF2 
 poids=71.05;	% kg
@@ -30,9 +32,9 @@ alcool = 0.5 ; % faible
 substance = 9; % importante
 
 %SF4
-hepathopatie= 0; % cirrhose-alcoolique
+hepathopatie= 0.75; % cirrhose-hepatique-C
 temps= 10; % longue duree
-hematochromatose= 0; % non
+hemochromatose= 0; % non
 
 %SF5
 confusion = 1.2; % faible
@@ -87,7 +89,7 @@ VHBC=0; % non
 nodule= 0.8; % T3
 
 %SF_var29 pour SF19
-antecedent = 0; % non
+antecedent = 1; % oui
 
 
 %% Chargement des SFi.m
@@ -139,4 +141,4 @@ SYS_F18;
 SYS_F_var29;
 SYS_F19;
 
-fprintf('\nLe diagnostic du patient est %s avec un degre %f.\n', csq_final, deg_max);
+fprintf('\nLe diagnostic du patient %s est %s avec un degre %f.\n', name, csq_final, deg_max);

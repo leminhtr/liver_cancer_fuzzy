@@ -9,6 +9,8 @@ current_dir= pwd;
 addpath('SF.m');
 addpath('fonctions');
 
+
+name='Louis Affute';
 %% Entree des valeurs : 
 
 %SF1
@@ -32,7 +34,7 @@ substance = 5; % moderee
 %SF4
 hepathopatie= 0; % cirrhose alcoolique
 temps= 10; % longue duree
-hematochromatose= 0; % non 
+hemochromatose= 0; % non 
 
 %SF5
 confusion = 5; % moderee
@@ -80,7 +82,7 @@ ChildPugh_class=ChildPugh(encephalopathie,ascite,bilirubineTot,albumine,prothrom
 % CLIP
 tumeur='multinodulaire';
 extension=20;
-afp= 629;
+afp= 619;
 thrombose=0;
 
 CLIP=CLIP_func(ChildPugh_class,tumeur,extension,afp,thrombose); % =2
@@ -142,4 +144,4 @@ SYS_F18;
 SYS_F_var29;
 SYS_F19;
 
-fprintf('\nLe diagnostic du patient est %s avec un degre %f.\n', csq_final, deg_max);
+fprintf('\nLe diagnostic du patient %s est %s avec un degre %f.\n', name, csq_final, deg_max);

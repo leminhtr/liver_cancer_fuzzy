@@ -1,6 +1,6 @@
 irr4 = [];
 SF4 = readfis([current_dir '\fis\SF4.fis']);
-[sortie, irr4, orr, arr] = evalfis([hepathopatie, temps, hematochromatose], SF4);
+[sortie, irr4, orr, arr] = evalfis([hepathopatie, temps, hemochromatose], SF4);
 declenchementSF4 = min(irr4, [], 2);
 nbruleSF4 = length(SF4.rule); % Nombre de regles
 nbCsqSF4 = length(SF4.output.mf); % Nombre de classes de sortie

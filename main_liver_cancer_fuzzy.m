@@ -61,7 +61,7 @@ substance = 9; % 0 a 10
 %SF4
 hepathopatie= 0; % cirrhose-alcoolique=0 ; cirrhose-hepatique-B=0.25; cirrhose-hepatique-C=0.75 ; NASH=1; pas-cirrhose= 0.5
 temps= 10; % 0 a 10
-hematochromatose= 0; % 0= non ou 1 = oui
+hemochromatose= 0; % 0= non ou 1 = oui
 
 %SF5
 confusion = 1.2; % 0 a 10
@@ -138,7 +138,7 @@ SYS_F7;
 SYS_F8;
 SYS_F14;
 
-% Autres signes lies aux fonctions hepatiques, Caracterisation des risques rares -> Smptome secondaire
+% Autres signes lies aux fonctions hepatiques, Caracterisation des risques rares -> Symptome secondaire
 SYS_F9;
 SYS_F10;
 

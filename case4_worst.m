@@ -9,8 +9,7 @@ current_dir= pwd;
 addpath ('SF.m');
 addpath ('fonctions');
 
-%prompt='Quel est le nom du patient ?\n';
-%name=input(prompt,'s');
+name='Karadoc CROC';
 
 %% Entree des valeurs : 
 
@@ -32,7 +31,7 @@ substance = 10; % prise de substances importante
 %SF4
 hepathopatie= 0; % cirrhose alcoolique
 temps= 10; % longue duree
-hematochromatose= 1; % oui 
+hemochromatose= 1; % oui 
 
 %SF5
 confusion = 10; % importante
@@ -63,8 +62,18 @@ paraneoplasique= 10; % signes paraneoplasiques tres prononces
 deficience_alpha= 1; % oui
 
 %SFCLIP pour SF13
-classe=ChildPugh('coma','abondante',100,0,0); % pire des cas : classe C
-CLIP = CLIP_func(classe,'diffuse',100,500,1); % 6 : pire des cas
+encephalopathie='coma';
+ascite='abondante';
+bilirubineTot=100;
+albumine=0;
+prothrombine=0;
+classe=ChildPugh(encephalopathie,ascite,bilirubineTot, albumine, prothrombine); % pire des cas : classe C
+
+Tumeur ='diffuse';
+Extension =100;
+AFP=500;
+Thrombose= 1 %oui
+CLIP = CLIP_func(classe,Tumeur,Extension,AFP,Thrombose); % 6 : pire des cas
 
 %SFVHBC pour SF17
 VHBC=1; % hepatite B chronique oui
@@ -75,7 +84,7 @@ antecedent = 1; % oui
 
 
 %% Chargement des SFi.m
-% total : 539 règles
+% total : 539 regles
 
 % Acces sante, situation patient -> Etat du patient
 SYS_F1;
@@ -124,6 +133,4 @@ SYS_F18;
 SYS_F_var29;
 SYS_F19;
 
-fprintf('\nLe diagnostic du patient est %s avec un degre %f.\n', csq_final, deg_max);
-
-
+fprintf('\nLe diagnostic du patient %s est %s avec un degre %f.\n', name, csq_final, deg_max);

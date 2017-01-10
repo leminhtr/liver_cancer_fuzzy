@@ -9,13 +9,12 @@ current_dir= pwd;
 addpath ('SF.m');
 addpath ('fonctions');
 
-%prompt='Quel est le nom du patient ?\n';
-%name=input(prompt,'s');
+name='Blanquette';
 
 %% Entree des valeurs : 
 
 %SF1
-Sexe=0; % homme
+Sexe=1; % femme
 Age = 43;% Jeune et Moins jeune
 IDH = 0.65; % Cap-Vert
 
@@ -32,7 +31,7 @@ substance = 4; % prise de substances moderee
 %SF4
 hepathopatie= 0.5; % pas de cirrhose/ d hepatopathie chronique
 temps= 0; % courte duree
-hematochromatose= 0; % non hematochromatose homozygote
+hemochromatose= 0; % non hematochromatose homozygote
 
 %SF5
 confusion = 5; % moderee
@@ -65,8 +64,19 @@ deficience_alpha= 0; % pas de deficience en alpha 1 antitripsine
 %SFCLIP pour SF13
 
 %Classe Child-Pugh
-classe=ChildPugh('absente','minime',40,30,45); % B
+encephalopathie='absente';
+ascite='minime';
+bilirubineTot=40;
+albumine=30;
+prothrombine=45;
+classe=ChildPugh(encephalopathie,ascite,bilirubineTot, albumine, prothrombine); % classe B
+
+Tumeur ='multinodulaire';
+Extension =50;
+AFP=399;
+Thrombose= 0; % non
 CLIP=CLIP_func(classe,'multinodulaire',50,399,0); % 2
+CLIP = CLIP_func(classe,Tumeur,Extension,AFP,Thrombose); % 2
 
 %SFVHBC pour SF17
 VHBC=0; % pas de virus hepatite B chronique
@@ -127,6 +137,6 @@ SYS_F_var29;
 %fprintf('\nLe diagnostic du patient %s est :\n', name);
 SYS_F19;
 
-fprintf('\nLe diagnostic du patient est %s avec un degre %f.\n', csq_final, deg_max);
+fprintf('\nLe diagnostic du patient %s est %s avec un degre %f.\n', name, csq_final, deg_max);
 
 
