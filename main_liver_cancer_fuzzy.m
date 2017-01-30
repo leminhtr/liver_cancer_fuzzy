@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Systeme flou d evaluation du risque de developpement de CHC
-				Sephora DIAMPOVESA, Minh Tri LE
+				% DIAMPOVESA Sephora , LE Minh Tri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Initialisation des variables
