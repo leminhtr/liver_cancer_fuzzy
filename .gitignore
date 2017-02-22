@@ -16,6 +16,8 @@
 # Compiled MEX binaries (all platforms)
 *.mex*
 
+*.docx
+SY10_Rapport_A16_Diampovesa_Lê.pdf
 # Simulink Code Generation
 slprj/
 
