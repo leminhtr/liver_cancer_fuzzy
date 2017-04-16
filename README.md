@@ -1,4 +1,4 @@
-# SY10 : Fuzzy Logic : Concepts And Applications
+# SY10 : Fuzzy Logic : Concepts and Applications
 
 ## Fuzzy expert system to evaluate the risk of developing a liver primary cancer : 
 ### Hepatocellular carcinoma
